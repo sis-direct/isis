@@ -91,6 +91,9 @@ return array(
         'template_path_stack' => array(
             __DIR__ . '/../view',
         ),
+        'template_map' => array(
+            'snippets/admin/sidebars/default' => __DIR__ . '/../view/snippets/admin/sidebars/default.phtml'
+        ),
     ),
     // Placeholder for console routes
     'console' => array(
