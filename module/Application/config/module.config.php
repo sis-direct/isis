@@ -92,7 +92,12 @@ return array(
             __DIR__ . '/../view',
         ),
         'template_map' => array(
-            'snippets/admin/sidebars/default' => __DIR__ . '/../view/snippets/admin/sidebars/default.phtml'
+            'snippets/admin/sidebars/default' => __DIR__ . '/../view/snippets/admin/sidebars/default.phtml',
+            'snippets/admin/user_login_dropdown' => __DIR__ . '/../view/snippets/admin/user_login_dropdown.phtml',
+            'widgets/todo_dropdown' => __DIR__ . '/../view/widgets/admin/todo_dropdown.phtml',
+            'widgets/inbox_dropdown' => __DIR__ . '/../view/widgets/admin/inbox_dropdown.phtml',
+            'widgets/notification_dropdown' => __DIR__ . '/../view/widgets/admin/notification_dropdown.phtml',
+            'widgets/portlets/config' => __DIR__ . '/../view/widgets/portlets/config.phtml'
         ),
     ),
     // Placeholder for console routes

@@ -48,14 +48,39 @@ var Login = function () {
 	            },
 
 	            submitHandler: function (form) {
-	                window.location.href = "index.html";
+                    var $form = $(form),
+                        data = {
+                        username : $("#usernameLoginInput").val(),
+                        password : $("#passwordLoginInput").val()
+                        },
+                        url = $form.attr('action');
+                    $.ajax({
+                        url : url,
+                        dataType : 'json',
+                        data : data,
+                        type : 'post',
+                        beforeSend: function() {
+                            $(document).trigger('loadinginit');
+                        },
+                        complete: function() {
+                            $(document).trigger('loadingcomplete');
+                        },
+                        success: function(data, status, xhr) {
+                            console.log(data);
+                            $(document).trigger('loadingsuccess');
+                            //document.location.href = "/administration/index"
+                        },
+                        error: function(status, xhr, errorThrown) {
+                            $(document).trigger('loadingerror');
+                        }
+                    });
 	            }
 	        });
 
 	        $('.login-form input').keypress(function (e) {
 	            if (e.which == 13) {
 	                if ($('.login-form').validate().form()) {
-	                    window.location.href = "index.html";
+	                    window.location.href = "/administration/connection";
 	                }
 	                return false;
 	            }
@@ -98,14 +123,14 @@ var Login = function () {
 	            },
 
 	            submitHandler: function (form) {
-	                window.location.href = "index.html";
+	                window.location.href = "/administration/account/forgot";
 	            }
 	        });
 
 	        $('.forget-form input').keypress(function (e) {
 	            if (e.which == 13) {
 	                if ($('.forget-form').validate().form()) {
-	                    window.location.href = "index.html";
+	                    window.location.href = "/administration/connection";
 	                }
 	                return false;
 	            }
@@ -174,7 +199,7 @@ var Login = function () {
 	            },
 
 	            submitHandler: function (form) {
-	                window.location.href = "index.html";
+	                window.location.href = "/administration/account/register";
 	            }
 	        });
 
